@@ -38,5 +38,5 @@ extract.ids  <- function(lines){
 }
 
 extract.count  <- function(lines){
-    as.numeric(gsub("[^0-9]", "",  grep("<Count>([0-9]+)</Count>", lines, value=TRUE)))
+    as.numeric( sub(".+?<Count>([0-9]+)</Count>.+", "\\1", grep("<Count>[0-9]+</Count>", tmp[[1]], value=TRUE))[1] )
 }
